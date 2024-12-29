@@ -2,11 +2,12 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/elissonalvesilva/cortex/code"
 	"github.com/gookit/color"
 	"os"
 	"runtime"
 
+	"github.com/elissonalvesilva/cortex/code"
+	"github.com/elissonalvesilva/cortex/git"
 	"github.com/elissonalvesilva/cortex/internal/cobrax"
 	"github.com/elissonalvesilva/cortex/internal/version"
 	"github.com/elissonalvesilva/cortex/search"
@@ -33,4 +34,14 @@ func init() {
 		runtime.GOOS, runtime.GOARCH)
 	rootCmd.AddCommand(search.Cmd)
 	rootCmd.AddCommand(code.Cmd)
+
+	//git
+	rootCmd.AddCommand(git.CloneCmd)
+	rootCmd.AddCommand(git.PullCmd)
+	rootCmd.AddCommand(git.PushCmd)
+	rootCmd.AddCommand(git.CheckoutCmd)
+	rootCmd.AddCommand(git.CommitCmd)
+	rootCmd.AddCommand(git.BranchCmd)
+	rootCmd.AddCommand(git.StatusCmd)
+	rootCmd.AddCommand(git.AddCmd)
 }
