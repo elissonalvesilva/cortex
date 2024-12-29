@@ -15,7 +15,8 @@ type (
 )
 
 const (
-	searchURL = "https://www.google.com/search?q=%s"
+	searchEngineURL = "https://www.google.com/search?q=%s"
+	videoURL        = "https://www.youtube.com/results?search_query=%s"
 )
 
 func searchCommand(_ *cobra.Command, _ []string) (err error) {
@@ -24,16 +25,24 @@ func searchCommand(_ *cobra.Command, _ []string) (err error) {
 			fmt.Println(color.Green.Render("search completed successfully\n"))
 		}
 	}()
-	
-	if err = openBrowser(buildSearchURL(varQuery)); err != nil {
+
+	if err = openBrowser(defineSearch()); err != nil {
 		return fmt.Errorf(color.Red.Render("error opening browser: %w", err))
 	}
 
 	return nil
 }
 
-func buildSearchURL(query string) string {
-	return fmt.Sprintf(searchURL, query)
+func defineSearch() string {
+	if varVideo {
+		return fmt.Sprintf(buildSearchURL(videoURL, varQuery))
+	}
+
+	return fmt.Sprintf(buildSearchURL(searchEngineURL, varQuery))
+}
+
+func buildSearchURL(url, query string) string {
+	return fmt.Sprintf(url, query)
 }
 
 func openBrowser(url string) error {

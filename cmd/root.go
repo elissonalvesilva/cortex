@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/elissonalvesilva/cortex/code"
 	"github.com/gookit/color"
 	"os"
 	"runtime"
@@ -31,4 +32,5 @@ func init() {
 		"%s %s/%s", version.BuildVersion,
 		runtime.GOOS, runtime.GOARCH)
 	rootCmd.AddCommand(search.Cmd)
+	rootCmd.AddCommand(code.Cmd)
 }
