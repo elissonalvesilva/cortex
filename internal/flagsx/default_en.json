@@ -1,0 +1,18 @@
+{
+  "cortex": {
+    "short": "Cortex CLI tool for search operations",
+    "long": "Cortex is a powerful command-line tool designed for performing various search operations, including searching through Google and Bing.",
+    "search": {
+      "google": {
+        "use": "searches on Google",
+        "short": "Google Search",
+        "long": "Performs a search using Google search engine. You can specify search terms and get results from Google's search engine."
+      },
+      "bing": {
+        "use": "searches on Bing",
+        "short": "Bing Search",
+        "long": "Performs a search using Microsoft's Bing search engine. Similar to Google, you can use search terms to get results from Bing."
+      }
+    }
+  }
+}
